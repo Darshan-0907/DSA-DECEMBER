@@ -1,0 +1,15 @@
+class Solution {
+    public int secondHighest(String s) {
+        TreeSet<Integer> d = new TreeSet<>();
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                d.add(ch - '0');
+            }
+        }
+        if (d.size() < 2) {
+            return -1;
+        }
+        d.pollLast();
+        return d.last();
+    }
+}
